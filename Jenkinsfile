@@ -2,8 +2,8 @@ pipeline {
     agent any
     
     tools {
-        maven 'Maven-3.9' // À adapter selon votre version Maven dans Jenkins
-        jdk 'Java17'      // À adapter selon votre version Java
+        maven 'Maven-3.9'
+        jdk 'Java17'
     }
     
     environment {
@@ -23,14 +23,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo '🔨 Compilation du projet...'
-                bat 'mvn clean compile'
+                sh 'mvn clean compile'
             }
         }
         
         stage('Test') {
             steps {
                 echo '🧪 Exécution des tests unitaires...'
-                bat 'mvn test'
+                sh 'mvn test'
             }
             post {
                 always {
@@ -42,7 +42,7 @@ pipeline {
         stage('Package') {
             steps {
                 echo '📦 Génération du package...'
-                bat 'mvn package -DskipTests'
+                sh 'mvn package -DskipTests'
             }
         }
         
@@ -57,8 +57,8 @@ pipeline {
         stage('Docker Build') {
             steps {
                 echo '🐳 Construction de l\'image Docker...'
-                bat "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
-                bat "docker tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${DOCKER_IMAGE}:latest"
+                sh "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
+                sh "docker tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${DOCKER_IMAGE}:latest"
             }
         }
     }
