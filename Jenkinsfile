@@ -29,8 +29,8 @@ pipeline {
         
         stage('Test') {
             steps {
-                echo '🧪 Exécution des tests unitaires...'
-                sh 'mvn test'
+                echo '🧪 Exécution des tests unitaires avec H2...'
+                sh 'mvn test -Dspring.profiles.active=test'
             }
             post {
                 always {
@@ -38,7 +38,7 @@ pipeline {
                 }
             }
         }
-        
+                
         stage('Package') {
             steps {
                 echo '📦 Génération du package...'
