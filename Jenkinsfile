@@ -15,7 +15,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo '📥 Clonage du repository...'
-                git branch: 'main', 
+                git branch: 'feature/jenkins-pipeline', 
                     url: 'https://github.com/saadsama/tp-global-devops.git'
             }
         }
