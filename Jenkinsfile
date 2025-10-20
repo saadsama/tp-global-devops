@@ -49,7 +49,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 echo '🔍 Analyse SonarQube...'
-                withSonarQubeEnv('Sonarqube-server') {  // ← Ce nom doit correspondre !
+                withSonarQubeEnv('sonarqube-server') {  // ← Ce nom doit correspondre !
                     sh 'mvn sonar:sonar'
                 }
             }
