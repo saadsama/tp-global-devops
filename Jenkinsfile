@@ -46,11 +46,12 @@ pipeline {
             }
         }
         
-        stage('SonarQube Analysis') {
+        groovystage('SonarQube Analysis') {
             steps {
                 echo '🔍 Analyse SonarQube...'
-                echo 'SonarQube sera configuré à l\'étape 3'
-                // On activera cette étape plus tard
+                withSonarQubeEnv('SonarQube') {  // ← Ce nom doit correspondre !
+                    sh 'mvn sonar:sonar'
+                }
             }
         }
         
