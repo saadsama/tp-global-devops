@@ -46,7 +46,7 @@ pipeline {
             }
         }
         
-        groovystage('SonarQube Analysis') {
+        stage('SonarQube Analysis') {
             steps {
                 echo '🔍 Analyse SonarQube...'
                 withSonarQubeEnv('SonarQube') {  // ← Ce nom doit correspondre !
