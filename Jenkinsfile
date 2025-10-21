@@ -7,7 +7,7 @@ pipeline {
     }
     
     environment {
-        DOCKER_IMAGE = 'abdessalamzarrouk/projetstage-app:latest '
+        DOCKER_IMAGE = 'abdessalamzarrouk/projetstage-app:latest'
         DOCKER_TAG = "${BUILD_NUMBER}"
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
     }
