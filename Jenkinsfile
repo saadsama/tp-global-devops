@@ -62,7 +62,7 @@ pipeline {
                 echo 'Consultez les résultats sur : http://localhost:9000'
             }
         }
-        
+
         stage('Docker Build') {
             steps {
                 echo '🐳 Construction de l\'image Docker...'
